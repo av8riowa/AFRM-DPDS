@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Tracking</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Vehicle Tracking</h1>
+    <table>
+        <tr>
+            <th>Callsign</th>
+            <th>Owner</th>
+            <th>Operator</th>
+            <th>Type</th>
+            <th>Serial Number</th>
+            <th>Auth Number</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Speed</th>
+            <th>Timestamp</th>
+            <th>Edit</th>
+        </tr>
+        {% for vehicle in vehicles %}
+        <tr>
+            <td>{{ vehicle.callsign }}</td>
+            <td>{{ vehicle.vehicle_owner }}</td>
+            <td>{{ vehicle.vehicle_operator }}</td>
+            <td>{{ vehicle.vehicle_type }}</td>
+            <td>{{ vehicle.serial_number }}</td>
+            <td>{{ vehicle.auth_number }}</td>
+            <td>{{ vehicle.latitude }}</td>
+            <td>{{ vehicle.longitude }}</td>
+            <td>{{ vehicle.speed }}</td>
+            <td>{{ vehicle.timestamp }}</td>
+            <td><a href="{{ url_for('edit', serial_number=vehicle.serial_number, auth_number=vehicle.auth_number) }}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
