@@ -40,6 +40,7 @@ def edit(serial_number, auth_number):
     vehicle = df[(df['serial_number'] == serial_number) & (df['auth_number'] == auth_number)].to_dict('records')[0]
 
     if request.method == 'POST':
+        vehicle['callsign'] = request.form['callsign']
         vehicle['serial_number'] = request.form['serial_number']
         vehicle['auth_number'] = request.form['auth_number']
         df.update(pd.DataFrame([vehicle]))
