@@ -8,6 +8,9 @@
 <body>
     <h1>Edit Vehicle</h1>
     <form method="post">
+        <label for="callsign">Callsign:</label>
+        <input type="text" id="callsign" name="callsign" value="{{ vehicle.callsign }}" required>
+        <br>
         <label for="serial_number">Serial Number:</label>
         <input type="text" id="serial_number" name="serial_number" value="{{ vehicle.serial_number }}" required>
         <br>
